@@ -2,6 +2,7 @@ package com.jayjaylab.ui.anatomy.ui.fragment;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,20 +12,30 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.jayjaylab.ui.anatomy.R;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
+import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
 import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
+import com.jayjaylab.ui.anatomy.presenter.implementations.InstagramImagesPresenterImpl;
+import com.jayjaylab.ui.anatomy.presenter.interfaces.InstagramImagesPresenter;
+import com.jayjaylab.ui.anatomy.ui.adapter.GridImageAdapter;
+import com.jayjaylab.ui.anatomy.ui.view.InstagramImageView;
 import com.jayjaylab.ui.anatomy.util.Log;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+import java.util.List;
+
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class MainActivityFragment extends Fragment implements
+        InstagramImageView {
     Unbinder unbinder;
+    InstagramImagesPresenter presenter;
 
     // views
+    GridImageAdapter adapter;
     @BindView(R.id.recyclerview) RecyclerView recyclerView;
 
 
@@ -47,34 +58,31 @@ public class MainActivityFragment extends Fragment {
     }
 
     void init() {
+        presenter = new InstagramImagesPresenterImpl(this);
+        presenter.getImageData();
         setViews();
-        loadInstagramData();
     }
 
     void setViews() {
-
+        setRecyclerView();
     }
 
-    void loadInstagramData() {
-        Observable<Entries> observable = InstagramLoader.getData();
-        observable
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Entries>() {
-                    @Override
-                    public void onCompleted() {
-                        if(Log.DEBUG) Log.d(null);
-                    }
+    void setRecyclerView() {
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        adapter = new GridImageAdapter();
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+    }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        if(Log.DEBUG) e.printStackTrace();
-                    }
+    @Override
+    public void showImage(Node node) {
+        if(Log.DEBUG) Log.d("node : " + node);
+        // TODO: 2016. 7. 17.  
+    }
 
-                    @Override
-                    public void onNext(Entries entries) {
-                        if(Log.DEBUG) Log.d("entries : " + entries);
-                    }
-                });
+    @Override
+    public void showImage(List<Node> list) {
+        if(Log.DEBUG) Log.d("# : " + list.size() + ", list : " + list);
+        adapter.addItems(list);
     }
 }

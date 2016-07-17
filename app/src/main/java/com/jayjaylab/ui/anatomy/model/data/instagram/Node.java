@@ -45,6 +45,24 @@ public class Node {
     @Expose
     private int videoViews;
 
+    @Override
+    public String toString() {
+        return "Node{" +
+                "code='" + code + '\'' +
+                ", date=" + date +
+                ", dimensions=" + dimensions +
+                ", comments=" + comments +
+                ", caption='" + caption + '\'' +
+                ", likes=" + likes +
+                ", owner=" + owner +
+                ", thumbnailSrc='" + thumbnailSrc + '\'' +
+                ", isVideo=" + isVideo +
+                ", id='" + id + '\'' +
+                ", displaySrc='" + displaySrc + '\'' +
+                ", videoViews=" + videoViews +
+                '}';
+    }
+
     /**
      * 
      * @return
