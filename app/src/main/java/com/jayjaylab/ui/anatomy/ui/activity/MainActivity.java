@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy;
+package com.jayjaylab.ui.anatomy.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.jayjaylab.ui.anatomy.R;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
 import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
 import com.jayjaylab.ui.anatomy.util.Log;
@@ -20,8 +21,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-
+    // views
     @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.fab) FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,33 +32,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setViews();
-
-        Observable<Entries> observable = InstagramLoader.getData();
-        observable
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Entries>() {
-            @Override
-            public void onCompleted() {
-                if(Log.DEBUG) Log.d(null);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                if(Log.DEBUG) e.printStackTrace();
-            }
-
-            @Override
-            public void onNext(Entries entries) {
-                if(Log.DEBUG) Log.d("entries : " + entries);
-            }
-        });
     }
 
     void setViews() {
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

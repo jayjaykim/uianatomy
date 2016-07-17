@@ -12,6 +12,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import rx.Observable;
 import rx.Observer;
+import rx.Subscriber;
 import rx.observables.AsyncOnSubscribe;
 
 import java.util.concurrent.Callable;
@@ -47,6 +48,28 @@ public class InstagramLoader {
         Elements elements = document.select("script");
         Entries entries = null;
         if(elements != null) {
+//            Observable.from(elements)
+//                    .forEach(element -> {
+//                        if(Log.DEBUG) Log.d("element : " + element);
+//                        String type = element.attr("type");
+//                        if (TextUtils.isEmpty(type))
+//                            return;
+//
+//                        if (type.equals("text/javascript")) {
+//                            String text = element.html();
+//                            if (!TextUtils.isEmpty(text)
+//                                    && text.startsWith("window._sharedData")) {
+//                                // finally we found the javascript element which has image data.
+//                                final int startPosition = text.indexOf('=') + 1;
+//                                final String json = text.substring(startPosition, text.length());
+//                                entries = GsonProvider.getInstance().
+//                                        unmarshallByJsonReader(json, Entries.class);
+//                                // FIXME: 2016. 7. 17. can the next invocation be cancelled?
+//                            }
+//                        }
+//                    });
+
+
             final int size = elements.size();
             for (int i = size - 1; i >= 0; i--) {
                 Element e = elements.get(i);
