@@ -2,6 +2,7 @@ package com.jayjaylab.ui.anatomy.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -41,9 +42,11 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
 
         if(node != null) {
             if(Log.DEBUG) Log.d("url : " + node.getThumbnailSrc());
-            if(node.getThumbnailSrc() == null) {
+            if(TextUtils.isEmpty(node.getThumbnailSrc())) {
+                Log.d("empty");
                 holder.imageview.setImageDrawable(null);
             } else {
+                Log.d("not empty");
                 Glide.with(holder.imageview.getContext())
                         .load(node.getThumbnailSrc())
                         .diskCacheStrategy(DiskCacheStrategy.RESULT)

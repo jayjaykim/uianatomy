@@ -10,7 +10,7 @@ import java.io.StringReader;
  */
 public class GsonProvider {
     Gson gson;
-    static GsonProvider instance;
+    static volatile GsonProvider instance;
 
     private GsonProvider() {
         gson = new Gson();
