@@ -31,6 +31,7 @@ import java.util.List;
  */
 public class MainActivityFragment extends Fragment implements
         InstagramImageView {
+    final int GRID_COLUMN = 3;
     Unbinder unbinder;
     InstagramImagesPresenter presenter;
 
@@ -73,8 +74,8 @@ public class MainActivityFragment extends Fragment implements
     }
 
     void setRecyclerView() {
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
-        adapter = new GridImageAdapter();
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), GRID_COLUMN);
+        adapter = new GridImageAdapter(getContext(), GRID_COLUMN);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
     }
