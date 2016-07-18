@@ -4,7 +4,7 @@ sample codes all about Android UI
 ### What's applied?
 - Jsoup for pasing html tags.
 - Glide for image loading and cache.
-- MVP for application architecture. (For the time being, I'm middle of considering what's more better between data-binding from Google and RxBinding by Jake Wharton.)
+- MVP for application architecture. (For the time being, I'm middle of considering what's better between data-binding from Google and RxBinding by Jake Wharton.)
 - RxJava, RxAndroid for asynchronous communication and replacing for loop.
 - RetroLambda for usign lambda expressions.
 - gson for serializing/deserialzing json which is performance effective as long as json string length is little(<300KB~500KB)
