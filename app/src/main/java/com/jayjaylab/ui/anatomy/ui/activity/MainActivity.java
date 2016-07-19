@@ -18,6 +18,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jayjaylab.ui.anatomy.R;
 import com.jayjaylab.ui.anatomy.event.ResponseEvent;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
+import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
 import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
 import com.jayjaylab.ui.anatomy.util.Log;
 import org.greenrobot.eventbus.EventBus;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.fab) FloatingActionButton fab;
     @BindView(R.id.appbar_layout) AppBarLayout appBarLayout;
     @BindView(R.id.collapsingtoolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
+    @BindView(R.id.imageview) ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        collapsingToolbarLayout.setTitle("uianatomy");
     }
 
     @Override
@@ -88,6 +91,18 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void showImageOnFlexibleArea(ResponseEvent event) {
         Log.d("event : " + event);
-        // TODO: 2016. 7. 19. set image 
+        // TODO: 2016. 7. 19. set image
+        switch(event.getId()) {
+            case FLEXIBLE_IMAGE: {
+                if(event.getArgs() == null || event.getArgs().length < 0
+                        || !(event.getArgs()[0] instanceof Node))
+                    return;
+
+                Node node = (Node)event.getArgs()[0];
+                Glide.with(this).load(node.getDisplaySrc()).crossFade().into(imageView);
+                break;
+            }
+        }
+
     }
 }
