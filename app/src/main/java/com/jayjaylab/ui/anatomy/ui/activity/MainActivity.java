@@ -1,6 +1,8 @@
 package com.jayjaylab.ui.anatomy.ui.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +16,13 @@ import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.jayjaylab.ui.anatomy.R;
+import com.jayjaylab.ui.anatomy.event.ResponseEvent;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
 import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
 import com.jayjaylab.ui.anatomy.util.Log;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.jsoup.nodes.Document;
 import rx.Observable;
 import rx.Subscriber;
@@ -27,14 +33,23 @@ public class MainActivity extends AppCompatActivity {
     // views
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.fab) FloatingActionButton fab;
+    @BindView(R.id.appbar_layout) AppBarLayout appBarLayout;
+    @BindView(R.id.collapsingtoolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
 
         setViews();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     void setViews() {
@@ -68,5 +83,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void showImageOnFlexibleArea(ResponseEvent event) {
+        Log.d("event : " + event);
+        // TODO: 2016. 7. 19. set image 
     }
 }

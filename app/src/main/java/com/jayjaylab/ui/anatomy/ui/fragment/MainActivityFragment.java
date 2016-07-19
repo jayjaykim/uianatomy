@@ -11,6 +11,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.jayjaylab.ui.anatomy.R;
+import com.jayjaylab.ui.anatomy.event.ResponseEvent;
+import com.jayjaylab.ui.anatomy.event.id.ResponseId;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
 import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
@@ -19,6 +21,7 @@ import com.jayjaylab.ui.anatomy.presenter.interfaces.InstagramImagesPresenter;
 import com.jayjaylab.ui.anatomy.ui.adapter.GridImageAdapter;
 import com.jayjaylab.ui.anatomy.ui.view.InstagramImageView;
 import com.jayjaylab.ui.anatomy.util.Log;
+import org.greenrobot.eventbus.EventBus;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -89,6 +92,9 @@ public class MainActivityFragment extends Fragment implements
     @Override
     public void showImage(List<Node> list) {
         if(Log.DEBUG) Log.d("# : " + list.size() + ", list : " + list);
+        if(list != null && list.size() > 0) {
+            EventBus.getDefault().post(new ResponseEvent(ResponseId.FLEXIBLE_IMAGE, list.get(0)));
+        }
         adapter.addItems(list);
     }
 }
