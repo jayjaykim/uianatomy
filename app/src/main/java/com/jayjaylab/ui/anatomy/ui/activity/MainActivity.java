@@ -7,9 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
 import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,14 +54,19 @@ public class MainActivity extends AppCompatActivity {
 
     void setViews() {
         setSupportActionBar(toolbar);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        setFAB();
+        collapsingToolbarLayout.setTitle("uianatomy");
+    }
+
+    void setFAB() {
+        fab.setOnClickListener(view -> {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-            }
         });
-        collapsingToolbarLayout.setTitle("uianatomy");
+        fab.setOnTouchListener((view, motionEvent) -> {
+            // TODO: 2016. 7. 20. detect scroll up and down.
+            return false;
+        });
     }
 
     @Override
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void showImageOnFlexibleArea(ResponseEvent event) {
         Log.d("event : " + event);
-        // TODO: 2016. 7. 19. set image
+
         switch(event.getId()) {
             case FLEXIBLE_IMAGE: {
                 if(event.getArgs() == null || event.getArgs().length < 0

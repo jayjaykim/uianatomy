@@ -46,15 +46,13 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Node node = dataset.get(position);
-        if(Log.DEBUG) Log.d("position : " + position);
+//        if(Log.DEBUG) Log.d("position : " + position);
 
         if(node != null) {
-            if(Log.DEBUG) Log.d("url : " + node.getThumbnailSrc());
+//            if(Log.DEBUG) Log.d("url : " + node.getThumbnailSrc());
             if(TextUtils.isEmpty(node.getThumbnailSrc())) {
-                Log.d("empty");
                 holder.imageview.setImageDrawable(null);
             } else {
-                Log.d("not empty");
                 Glide.with(holder.imageview.getContext())
                         .load(node.getThumbnailSrc())
                         .diskCacheStrategy(DiskCacheStrategy.RESULT)
