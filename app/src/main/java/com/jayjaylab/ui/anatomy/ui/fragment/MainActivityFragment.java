@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class MainActivityFragment extends Fragment implements
         InstagramImageView {
-    final int GRID_COLUMN = 3;
+    final int GRID_COLUMN = 2;
     Unbinder unbinder;
     InstagramImagesPresenter presenter;
 
