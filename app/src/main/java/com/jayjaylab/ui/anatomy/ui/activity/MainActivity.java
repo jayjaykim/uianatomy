@@ -58,12 +58,15 @@ public class MainActivity extends AppCompatActivity {
     void setViews() {
         setSupportActionBar();
         setFAB();
-        collapsingToolbarLayout.setTitle(title);
     }
 
     void setSupportActionBar() {
+        collapsingToolbarLayout.setTitle(title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
     }
 
     void setFAB() {
