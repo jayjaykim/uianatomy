@@ -21,6 +21,8 @@
                 android:minHeight="?attr/actionBarSize"
                 android:fitsSystemWindows="true"
                 app:contentScrim="@color/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
             <ImageView android:id="@+id/imageview"
                     android:layout_width="match_parent"
@@ -34,10 +36,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:theme="@style/ToolbarTheme"
+                    app:layout_collapseMode="pin"
                     app:contentInsetLeft="0dp"
                     app:contentInsetStart="0dp"
                     app:titleTextAppearance="@style/Toolbar.TitleText"
-                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|enterAlways"
                     app:popupTheme="@style/AppTheme.PopupOverlay"/>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
