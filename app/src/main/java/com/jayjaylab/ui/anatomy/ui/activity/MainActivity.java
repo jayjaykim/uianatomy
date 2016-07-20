@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.ImageView;
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
@@ -29,7 +30,9 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    // views
+
+    @BindString(R.string.app_name) String title;
+
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.fab) FloatingActionButton fab;
     @BindView(R.id.appbar_layout) AppBarLayout appBarLayout;
@@ -53,9 +56,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setViews() {
-        setSupportActionBar(toolbar);
+        setSupportActionBar();
         setFAB();
-        collapsingToolbarLayout.setTitle("uianatomy");
+        collapsingToolbarLayout.setTitle(title);
+    }
+
+    void setSupportActionBar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     void setFAB() {
