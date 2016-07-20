@@ -13,19 +13,13 @@ import butterknife.Unbinder;
 import com.jayjaylab.ui.anatomy.R;
 import com.jayjaylab.ui.anatomy.event.ResponseEvent;
 import com.jayjaylab.ui.anatomy.event.id.ResponseId;
-import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
-import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
 import com.jayjaylab.ui.anatomy.presenter.implementations.InstagramImagesPresenterImpl;
 import com.jayjaylab.ui.anatomy.presenter.interfaces.InstagramImagesPresenter;
 import com.jayjaylab.ui.anatomy.ui.adapter.GridImageAdapter;
 import com.jayjaylab.ui.anatomy.ui.view.InstagramImageView;
 import com.jayjaylab.ui.anatomy.util.Log;
 import org.greenrobot.eventbus.EventBus;
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 import java.util.List;
 
