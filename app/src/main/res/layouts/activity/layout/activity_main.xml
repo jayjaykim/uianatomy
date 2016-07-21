@@ -46,6 +46,11 @@
 
     <include layout="@layout/content_main"
              app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <com.jayjaylab.ui.anatomy.ui.widget.SimpleCustomView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:minWidth="50dp"/>
 
     <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
