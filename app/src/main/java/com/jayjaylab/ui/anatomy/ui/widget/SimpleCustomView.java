@@ -2,6 +2,8 @@ package com.jayjaylab.ui.anatomy.ui.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,6 +13,9 @@ import com.jayjaylab.ui.anatomy.util.Log;
  * Created by jjkim on 2016. 7. 20..
  */
 public class SimpleCustomView extends View {
+
+    Paint paint;
+
     public SimpleCustomView(Context context) {
         super(context);
         init(context, null);
@@ -34,20 +39,35 @@ public class SimpleCustomView extends View {
 
     void init(Context context, AttributeSet atrs) {
 
+        paint = new Paint();
     }
 
     void logMode(int measureSpec) {
-        switch(measureSpec) {
-            case MeasureSpec.AT_MOST:
-                Log.d("at_most");
-                break;
-            case MeasureSpec.EXACTLY:
-                Log.d("exactly");
-                break;
-            case MeasureSpec.UNSPECIFIED:
-                Log.d("unspeicified");
-                break;
+        if(Log.DEBUG) {
+            switch (measureSpec) {
+                case MeasureSpec.AT_MOST:
+                    Log.d("at_most");
+                    break;
+                case MeasureSpec.EXACTLY:
+                    Log.d("exactly");
+                    break;
+                case MeasureSpec.UNSPECIFIED:
+                    Log.d("unspeicified");
+                    break;
+            }
         }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if(Log.DEBUG) Log.d("l : " + getLeft() + ", t : " + getTop()
+                + ", r : " + getRight() + ", b : " + getBottom());
+
+        // FIXME: 2016. 7. 21. why isn't drawn???
+        paint.setColor(0xffffff00);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        canvas.drawRect(getLeft(), getTop(), getRight(), getBottom(), paint);
     }
 
     @Override
@@ -57,9 +77,9 @@ public class SimpleCustomView extends View {
                 + ", heightMeasureSpec : " + heightMeasureSpec);
 
         logMode(View.MeasureSpec.getMode(widthMeasureSpec));
-        Log.d("w.size : " + View.MeasureSpec.getSize(widthMeasureSpec));
+        if(Log.DEBUG) Log.d("w.size : " + View.MeasureSpec.getSize(widthMeasureSpec));
         logMode(View.MeasureSpec.getMode(heightMeasureSpec));
-        Log.d("h.size : " + View.MeasureSpec.getSize(heightMeasureSpec));
+        if(Log.DEBUG) Log.d("h.size : " + View.MeasureSpec.getSize(heightMeasureSpec));
     }
 
     @Override
