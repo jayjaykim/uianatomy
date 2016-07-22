@@ -64,10 +64,9 @@ public class SimpleCustomView extends View {
         if(Log.DEBUG) Log.d("l : " + getLeft() + ", t : " + getTop()
                 + ", r : " + getRight() + ", b : " + getBottom());
 
-        // FIXME: 2016. 7. 21. why isn't drawn???
         paint.setColor(0xffffff00);
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        canvas.drawRect(getLeft(), getTop(), getRight(), getBottom(), paint);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(0, 0, getWidth(), getHeight(), paint);
     }
 
     @Override
