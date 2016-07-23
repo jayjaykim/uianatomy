@@ -6,6 +6,5 @@
     <com.jayjaylab.ui.anatomy.ui.widget.SimpleCustomView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_gravity="center"
-    android:background="#ffff0000"/>
+            android:layout_gravity="center"/>
 </FrameLayout>

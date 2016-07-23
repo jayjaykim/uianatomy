@@ -38,7 +38,6 @@ public class SimpleCustomView extends View {
     }
 
     void init(Context context, AttributeSet atrs) {
-
         paint = new Paint();
     }
 
