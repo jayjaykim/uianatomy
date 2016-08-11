@@ -2,8 +2,7 @@ package com.jayjaylab.ui.anatomy.ui.navigation;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
-import com.dunamu.stockplus.ui.activity.MainActivity;
-import com.dunamu.stockplus.ui.fragment.FavoriteStockFragment;
+import com.jayjaylab.ui.anatomy.ui.activity.MainActivity;
 
 /**
  * 2 depth, 3 depth, n depth?
@@ -11,7 +10,7 @@ import com.dunamu.stockplus.ui.fragment.FavoriteStockFragment;
  * Created by jayjay on 2016. 8. 9..
  */
 public enum Page {
-    FAVORITE(MainActivity.class, FavoriteStockFragment.class),
+    FAVORITE(MainActivity.class, null),
 
 
     ;
