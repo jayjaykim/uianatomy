@@ -6,5 +6,5 @@ package com.jayjaylab.ui.anatomy.ui.navigation;
  * Created by jayjay on 2016. 8. 11..
  */
 public class Key {
-
+    public static final String PAGE = "()key";  // make unique, cannot be duplicate.
 }

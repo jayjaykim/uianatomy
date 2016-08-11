@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import com.dunamu.stockplus.util.Log;
 
 /**
  * Created by jayjay on 2016. 8. 9..
@@ -18,8 +19,19 @@ public class PageNavigator {
      * @param page
      * @param args extra information to be delivered to the <code>page</code>
      */
+    // TODO: 2016. 8. 11. what if 2 depth, 3 depth, n depth.
     public static void go(Activity activity, Page page, Bundle args) {
+        if(activity == null)
+            throw  new IllegalArgumentException("activity is null.");
+
+        if(Log.DEBUG) Log.d("page : " + page + ", args : " + args);
+
         Intent intent = new Intent(activity, page.getActivity());
+        if(args == null) {
+            args = new Bundle();
+        }
+
+        args.putSerializable(Key.PAGE, page);
         ActivityCompat.startActivity(activity, intent, args);
     }
 }
