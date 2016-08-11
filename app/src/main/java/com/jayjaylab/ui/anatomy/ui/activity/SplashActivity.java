@@ -3,9 +3,13 @@ package com.jayjaylab.ui.anatomy.ui.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
+import com.bumptech.glide.Glide;
 import com.jayjaylab.ui.anatomy.R;
+import com.jayjaylab.ui.anatomy.util.Log;
 
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
