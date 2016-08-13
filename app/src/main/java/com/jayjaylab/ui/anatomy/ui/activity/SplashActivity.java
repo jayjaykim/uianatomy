@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * Created by jjkim on 2016. 7. 21..
  */
 public class SplashActivity extends Activity {
-    final int WAITING_TIME = 60000;
+    final int WAITING_TIME = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

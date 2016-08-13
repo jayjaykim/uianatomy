@@ -21,6 +21,8 @@ import java.util.concurrent.Callable;
  * Created by jjkim on 2016. 7. 17..
  */
 public class InstagramLoader {
+    final static String url = "https://www.instagram.com/ioi_official_ig/";
+
     @WorkerThread
     public static Observable<Entries> getData() {
         return Observable.create(
@@ -29,7 +31,7 @@ public class InstagramLoader {
                         return;
 
                     try {
-                        Document doc = Jsoup.connect("https://www.instagram.com/ioi_fanpage/").get();
+                        Document doc = Jsoup.connect(url).get();
                         Entries entries = null;
                         if(doc != null) {
                             entries = internalGetData(doc);
