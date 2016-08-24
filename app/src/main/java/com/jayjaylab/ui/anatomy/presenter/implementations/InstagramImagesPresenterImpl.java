@@ -1,12 +1,11 @@
 package com.jayjaylab.ui.anatomy.presenter.implementations;
 
 import com.jayjaylab.ui.anatomy.model.data.instagram.Entries;
-import com.jayjaylab.ui.anatomy.model.data.instagram.Media;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
 import com.jayjaylab.ui.anatomy.model.data.instagram.ProfilePage;
 import com.jayjaylab.ui.anatomy.model.logic.InstagramLoader;
 import com.jayjaylab.ui.anatomy.presenter.interfaces.InstagramImagesPresenter;
-import com.jayjaylab.ui.anatomy.ui.view.InstagramImageView;
+import com.jayjaylab.ui.anatomy.view.view.InstagramImageView;
 import com.jayjaylab.ui.anatomy.util.Log;
 import rx.Observable;
 import rx.Subscriber;

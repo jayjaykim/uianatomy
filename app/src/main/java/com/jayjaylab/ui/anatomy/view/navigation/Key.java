@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui.navigation;
+package com.jayjaylab.ui.anatomy.view.navigation;
 
 /**
  * Keys used in {@link android.os.Bundle} or {@link android.content.Intent} to deliver data.

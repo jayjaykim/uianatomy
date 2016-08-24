@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui.widget;
+package com.jayjaylab.ui.anatomy.view.widget;
 
 import android.annotation.TargetApi;
 import android.content.Context;

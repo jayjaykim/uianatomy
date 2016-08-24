@@ -1,8 +1,8 @@
-package com.jayjaylab.ui.anatomy.ui.navigation;
+package com.jayjaylab.ui.anatomy.view.navigation;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
-import com.jayjaylab.ui.anatomy.ui.activity.MainActivity;
+import com.jayjaylab.ui.anatomy.view.activity.MainActivity;
 
 /**
  * 2 depth, 3 depth, n depth?

@@ -1,7 +1,6 @@
-package com.jayjaylab.ui.anatomy.ui.adapter;
+package com.jayjaylab.ui.anatomy.view.adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;

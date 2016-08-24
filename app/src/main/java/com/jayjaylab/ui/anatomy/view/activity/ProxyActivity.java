@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui.activity;
+package com.jayjaylab.ui.anatomy.view.activity;
 
 import android.app.Activity;
 import android.content.Intent;

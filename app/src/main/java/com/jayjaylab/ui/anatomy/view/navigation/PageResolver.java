@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui.navigation;
+package com.jayjaylab.ui.anatomy.view.navigation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui;
+package com.jayjaylab.ui.anatomy.view;
 
 import android.app.Application;
 import com.facebook.stetho.Stetho;

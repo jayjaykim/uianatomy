@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui.view;
+package com.jayjaylab.ui.anatomy.view.view;
 
 import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
 

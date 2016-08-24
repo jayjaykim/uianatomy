@@ -1,4 +1,4 @@
-package com.jayjaylab.ui.anatomy.ui.fragment;
+package com.jayjaylab.ui.anatomy.view.fragment;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import com.jayjaylab.ui.anatomy.event.id.ResponseId;
 import com.jayjaylab.ui.anatomy.model.data.instagram.Node;
 import com.jayjaylab.ui.anatomy.presenter.implementations.InstagramImagesPresenterImpl;
 import com.jayjaylab.ui.anatomy.presenter.interfaces.InstagramImagesPresenter;
-import com.jayjaylab.ui.anatomy.ui.adapter.GridImageAdapter;
-import com.jayjaylab.ui.anatomy.ui.view.InstagramImageView;
+import com.jayjaylab.ui.anatomy.view.adapter.GridImageAdapter;
+import com.jayjaylab.ui.anatomy.view.view.InstagramImageView;
 import com.jayjaylab.ui.anatomy.util.Log;
 import org.greenrobot.eventbus.EventBus;
 
