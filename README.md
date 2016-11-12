@@ -5,7 +5,7 @@ sample codes all about Android UI
 - Jsoup for pasing html tags.
 - Glide for image loading and cache.
 - MVP for application architecture. (For the time being, I'm middle of considering what's better between data-binding from Google and RxBinding by Jake Wharton.)
-- RxJava, RxAndroid for asynchronous communication and replacing for-loop.
+- RxJava, RxAndroid for asynchronous communication.
 - RetroLambda for using lambda expressions.
 - Gson for serializing/deserialzing json which is performance effective as long as json string length is little(<300KB~500KB)
 - GreenRobot eventbus for event communication among activities, fragments, services.
